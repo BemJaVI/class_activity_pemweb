@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker Kuliah</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script> 
+</head>
+<body>
+    <div class="container">
+        <h2>📋 Task Tracker Kuliah</h2>
+        
+        <form id="task-form">
+            <input type="text" id="input-judul" placeholder="Judul tugas (min. 3 karakter)">
+            <div class="form-row">
+                <select id="input-matkul">
+                    <option value="Pemrograman Web">Pemrograman Web</option>
+                    <option value="Basis Data">Basis Data</option>
+                    <option value="Struktur Data">Struktur Data</option>
+                </select>
+                <input type="date" id="input-deadline">
+                <button type="submit">Tambah</button>
+            </div>
+            <p id="error-msg" class="error hidden">Judul minimal 3 karakter & deadline wajib diisi!</p>
+        </form>
+
+        <div class="controls">
+            <div class="filters" id="filter-buttons">
+                <button class="filter-btn on" data-filter="Semua">Semua</button>
+                <button class="filter-btn" data-filter="Aktif">Aktif</button>
+                <button class="filter-btn" data-filter="Selesai">Selesai</button>
+            </div>
+            <span id="task-counter">0 tugas aktif</span>
+        </div>
+
+        <ul id="task-list"></ul>
+    </div>
+</body>
+</html>

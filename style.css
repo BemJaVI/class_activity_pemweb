@@ -1,0 +1,18 @@
+* { box-sizing: border-box; font-family: sans-serif; }
+body { background: #0f172a; color: #333; padding: 20px; }
+.container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+.form-row { display: flex; gap: 10px; margin-top: 10px; }
+.form-row > * { flex: 1; padding: 8px; }
+button { cursor: pointer; padding: 8px 12px; }
+.error { color: red; font-size: 0.9em; }
+.hidden { display: none; }
+.controls { display: flex; justify-content: space-between; align-items: center; margin: 20px 0; font-size: 0.9em; }
+.filter-btn { border: 1px solid #ccc; background: white; }
+.filter-btn.on { background: #1e293b; color: white; border-color: #1e293b; }
+ul { list-style: none; padding: 0; }
+li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eee; }
+li.selesai .task-content { text-decoration: line-through; opacity: 0.6; }
+.task-content { flex: 1; }
+.task-title { font-weight: bold; margin: 0; }
+.task-meta { font-size: 0.8em; color: #666; margin: 5px 0 0 0; }
+.delete-btn { background: white; border: 1px solid red; color: red; border-radius: 4px; padding: 2px 6px; }
