@@ -39,6 +39,27 @@ form.addEventListener('submit', (e) => {
     form.reset();
     render(); 
 });
+
+// --- Commit "delegation": Handle Checkbox dan Hapus via Event Delegation ---
+taskList.addEventListener('click', (e) => {
+    const item = e.target.closest('li');
+    if (!item) return;
+
+    const id = Number(item.dataset.id);
+
+    // Jika yang diklik adalah checkbox
+    if (e.target.classList.contains('check-selesai')) {
+        const task = tasks.find(t => t.id === id);
+        if (task) task.selesai = e.target.checked;
+        render();
+    }
+
+    // Jika yang diklik adalah tombol hapus
+    if (e.target.closest('.delete-btn')) {
+        tasks = tasks.filter(t => t.id !== id);
+        render();
+    }
+});
 // --- Commit "render": Fungsi utama untuk membangun UI ---
 function render() {
     tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
