@@ -12,6 +12,33 @@ const taskCounter = document.querySelector('#task-counter');
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let currentFilter = 'Semua';
 
+// --- Commit "form": Handle penambahan tugas ---
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); 
+
+    const judul = inputJudul.value.trim();
+    const matkul = inputMatkul.value;
+    const deadline = inputDeadline.value;
+
+    if (judul.length < 3 || !deadline) {
+        errorMsg.classList.remove('hidden');
+        return;
+    }
+    
+    errorMsg.classList.add('hidden');
+
+    const newTask = {
+        id: Date.now(),
+        judul,
+        matkul,
+        deadline,
+        selesai: false
+    };
+
+    tasks.push(newTask);
+    form.reset();
+    render(); 
+});
 // --- Commit "render": Fungsi utama untuk membangun UI ---
 function render() {
     tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
