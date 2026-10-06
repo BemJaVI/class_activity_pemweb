@@ -60,6 +60,18 @@ taskList.addEventListener('click', (e) => {
         render();
     }
 });
+
+// --- Commit "filter": Handle pergantian tab Semua/Aktif/Selesai ---
+filterContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('filter-btn')) {
+        // Hapus class 'on' dari semua tombol, tambahkan ke tombol yang diklik
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('on'));
+        e.target.classList.add('on');
+        
+        currentFilter = e.target.dataset.filter;
+        render();
+    }
+});
 // --- Commit "render": Fungsi utama untuk membangun UI ---
 function render() {
     tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
